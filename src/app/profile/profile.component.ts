@@ -9,6 +9,7 @@ import { UserService, CurrentUser } from '../services/user.service';
 })
 export class ProfileComponent implements OnInit {
   cid: number | null = null;
+
   user: CurrentUser = {
     id: 0,
     name: '',
@@ -24,14 +25,19 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.cid = +params['cid'] || null;
-      console.log('CID from query params:', this.cid);
+      const cidParam = params['cid'];
+      this.cid = cidParam ? +cidParam : null;
     });
 
-    this.userService.getCurrentUser().subscribe(res => {
-      if (res.success) {
-        this.user = res.data;
-        console.log('Logged-in user:', this.user);
+    this.userService.getCurrentUser().subscribe({
+      next: res => {
+        if (res.success) {
+          this.user = res.data;
+          console.log('logged-in user:', this.user);
+        }
+      },
+      error: err => {
+        console.error('offfffff', err);
       }
     });
   }
