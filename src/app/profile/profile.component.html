@@ -1,0 +1,7 @@
+<h2>Profile View</h2>
+<p>Viewing profile for CID: {{ cid }}</p>
+<hr />
+
+<p><strong>Logged in as:</strong> {{ user.name || 'Guest' }} ({{ user.username || 'N/A' }})</p>
+<p><strong>Email:</strong> {{ user.email }}</p>
+<p><strong>Status:</strong> {{ user.logged_in ? 'Logged In' : 'Guest' }}</p>
