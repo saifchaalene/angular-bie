@@ -1,0 +1,15 @@
+<h2>Liste des utilisateurs Joomla</h2>
+
+<div *ngIf="userList?.length; else loadingOrEmpty">
+  <ul>
+    <li *ngFor="let user of userList">
+      <strong>{{ user.attributes.name }}</strong> ({{ user.attributes.username }})<br />
+      📧 {{ user.attributes.email }}
+      <hr />
+    </li>
+  </ul>
+</div>
+
+<ng-template #loadingOrEmpty>
+  <p>Aucun utilisateur trouvé ou en cours de chargement...</p>
+</ng-template>

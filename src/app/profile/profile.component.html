@@ -1,7 +1,14 @@
-<h2>Profile View</h2>
-<p>Viewing profile for CID: {{ cid }}</p>
-<hr />
+<h2>Profil de l’utilisateur connecté</h2>
 
-<p><strong>Logged in as:</strong> {{ user.name || 'Guest' }} ({{ user.username || 'N/A' }})</p>
-<p><strong>Email:</strong> {{ user.email }}</p>
-<p><strong>Status:</strong> {{ user.logged_in ? 'Logged In' : 'Guest' }}</p>
+<div *ngIf="isLoading; else userInfo">
+  <p>Chargement des informations utilisateur...</p>
+</div>
+
+<ng-template #userInfo>
+  <div *ngIf="user">
+    <p><strong>ID:</strong> {{ user.id }}</p>
+    <p><strong>Nom:</strong> {{ user.name }}</p>
+    <p><strong>Identifiant:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+  </div>
+</ng-template>
