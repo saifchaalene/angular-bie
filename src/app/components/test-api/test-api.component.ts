@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { JoomlaApiService } from '../services/joomla-api.service';
+import { JoomlaApiService } from '../../services/joomla-api.service';
 
 @Component({
   selector: 'app-test-api',

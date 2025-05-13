@@ -1,0 +1,13 @@
+<div *ngIf="loading" class="text-center">Loading contact...</div>
+
+<div *ngIf="error" class="text-danger text-center">{{ error }}</div>
+
+<div *ngIf="contact" class="contact-card">
+  <h2>{{ contact.fullname }}</h2>
+  <p><strong>Title:</strong> {{ contact.prefix }} - {{ contact.job_title }}</p>
+  <p><strong>Email:</strong> <span [innerHTML]="contact.email"></span></p>
+  <p><strong>Phone:</strong> <span [innerHTML]="contact.phones"></span></p>
+  <p><strong>Country:</strong> {{ contact.country }}</p>
+  <p><strong>Notes:</strong> {{ contact.notes }}</p>
+</div>
+<p>plada </p>

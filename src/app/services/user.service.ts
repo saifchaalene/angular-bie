@@ -42,7 +42,7 @@ export class UserService {
 
 
   getCurrentUser2(): Observable<{ success: boolean; data: CurrentUser }> {
-    const csrfKey = '3524554c9ccecb839595a93a4315c327';
+    const csrfKey = '18dcd2dbccca411997a5b95a92480ab5';
     const csrfValue = '1';
   
     const fullUrl =
